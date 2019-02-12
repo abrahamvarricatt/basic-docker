@@ -2,6 +2,7 @@ from flask import Flask
 from redis import Redis, RedisError
 import os
 import socket
+from build_id import BUILD_ID
 
 # Connect to Redis
 redis = Redis(host="redis", db=0, socket_connect_timeout=2, socket_timeout=2)
@@ -18,8 +19,14 @@ def hello():
     html = "<h3>Hello {name}!</h3>" \
            "<b>Hostname:</b> {hostname}<br/>" \
            "<b>Visits:</b> {visits}" \
-           "<p>Deployment update - AAA</p>"
-    return html.format(name=os.getenv("NAME", "world"), hostname=socket.gethostname(), visits=visits)
+           "<p>Deployment update - AAA</p>" \
+           "<p>Build ID = {build_id}</p>"
+    return html.format(
+        name=os.getenv("NAME", "world"), 
+        hostname=socket.gethostname(), 
+        visits=visits,
+        build_id=BUILD_ID,
+    )
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)
