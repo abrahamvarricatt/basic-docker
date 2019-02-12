@@ -19,7 +19,7 @@ def hello():
     html = "<h3>Hello {name}!</h3>" \
            "<b>Hostname:</b> {hostname}<br/>" \
            "<b>Visits:</b> {visits}" \
-           "<p>Deployment update - AAA</p>" \
+           "<p>Deployment update - BBB</p>" \
            "<p>Build ID = {build_id}</p>"
     return html.format(
         name=os.getenv("NAME", "world"), 
