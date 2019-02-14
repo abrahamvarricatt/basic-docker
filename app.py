@@ -16,13 +16,13 @@ def hello():
     except RedisError:
         visits = "<i>cannot connect to Redis, counter disabled</i>"
 
-    html = "<h3>Hello {name}!</h3>" \
+    html = "<h3>Hello from {active_environment}!</h3>" \
            "<b>Hostname:</b> {hostname}<br/>" \
            "<b>Visits:</b> {visits}" \
            "<p>Deployment update - BBB</p>" \
            "<p>Build ID = {build_id}</p>"
     return html.format(
-        name=os.getenv("NAME", "world"), 
+        active_environment=os.getenv("ACTIVE_ENVIRONMENT", "local"), 
         hostname=socket.gethostname(), 
         visits=visits,
         build_id=BUILD_ID,
