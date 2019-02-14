@@ -18,7 +18,7 @@ def hello():
 
     html = "<h3>Hello from {active_environment}!</h3>" \
            "<b>Hostname:</b> {hostname}<br/>" \
-           "<b>Visits:</b> {visits}" \
+        #    "<b>Visits:</b> {visits}" \
            "<p>Deployment update - BBB</p>" \
            "<p>Build ID = {build_id}</p>"
     return html.format(
