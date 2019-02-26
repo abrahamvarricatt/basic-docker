@@ -18,7 +18,7 @@ def hello():
 
     html = "<h3>Hello from {active_environment}!</h3>" \
            "<b>Hostname:</b> {hostname}<br/>" \
-           "<p>Deployment update - CCC</p>" \
+           "<p>Deployment update - DDD</p>" \
            "<p>Build ID = {build_id}</p>"
     return html.format(
         active_environment=os.getenv("ACTIVE_ENVIRONMENT", "local"), 
