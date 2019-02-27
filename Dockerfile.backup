@@ -1,9 +1,5 @@
-# Ubuntu LTS release
-FROM ubuntu:18.04
-
-# Update and install python 2.7
-RUN apt-get update \
-    && apt-get install -y python python-pip
+# Use an official Python runtime as a parent image
+FROM python:2.7-slim
 
 # Set the working directory to /app
 WORKDIR /app
@@ -22,4 +18,3 @@ ENV NAME World
 
 # Run app.py when the container launches
 CMD ["python", "app.py"]
-# CMD ["tail", "-f", "app.py"]
